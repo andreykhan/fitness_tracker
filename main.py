@@ -107,7 +107,6 @@ def read_package(workout_type, data):
 
 def main(training: Training):
     info = Training.show_training_info(training)
-    #info = training.show_training_info()
     print(info.get_message())
 
 
