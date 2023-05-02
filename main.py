@@ -35,11 +35,11 @@ class InfoMessage:
         self.calories = calories
 
     def get_message(self) -> str:
-        return (f'Тип тренировки: {self.training_type};'
-                f' Длительность: {self.duration} ч.;'
-                f' Дистанция: {self.distance} км;'
-                f' Ср. скорость: {self.speed} км/ч;'
-                f' Потрачено ккал: {self.calories}.')
+        return (f'Тип тренировки: {self.training_type}; '
+                f'Длительность: {self.duration:.3f} ч.; '
+                f'Дистанция: {self.distance:.3f} км; '
+                f'Ср. скорость: {self.speed:.3f} км/ч; '
+                f'Потрачено ккал: {self.calories:.3f}.')
 
 
 class Running(Training):
@@ -70,8 +70,8 @@ class SportsWalking(Training):
         self.height = height
     
     def get_spent_calories(self):
-        return ((self.CALORIES_MEAN_SPEED_MULTIPLIER * self.weight + (self.get_mean_speed()**2 / self.height)
-        * self.CALORIES_MEAN_SPEED_SHIFT * self.weight) * self.duration) 
+        return (self.CALORIES_MEAN_SPEED_MULTIPLIER * self.weight + (self.get_mean_speed()**2 / self.height)
+        * self.CALORIES_MEAN_SPEED_SHIFT * self.weight) * self.duration
 
 
 
@@ -113,7 +113,7 @@ def main(training: Training):
 
 if __name__ == '__main__':
     packages = [        
-        ('SWM', [720, 1, 80, 25, 40]), # количество гребков, время в часах, вес пользователя, длина бассейна, сколько раз пользователь переплыл бассейн.
+        ('SWM', [7200, 1, 80, 25, 40]), # количество гребков, время в часах, вес пользователя, длина бассейна, сколько раз пользователь переплыл бассейн.
         ('RUN', [15000, 1, 75]), # количество шагов, время тренировки в часах, вес пользователя.
         ('WLK', [9000, 1, 75, 180]), # количество шагов, время тренировки в часах, вес пользователя, рост пользователя.
     ]
